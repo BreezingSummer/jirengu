@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var fs = require("fs")
+var con = process.argv[2]
+
+if( con == undefined){
+   console.log("Oops!You have to enter a FOLDER name!!");
+   process.exit
+}else if( fs.existsSync( con )){
+   console.log("Oops!Folder name exists!");
+}else{
+   fs.mkdirSync("./" + con);
+   process.chdir("./" + con);
+   fs.mkdirSync("css");
+   fs.mkdirSync("js");
+
+   fs.writeFileSync("./index.html","<!doctype html>\n<title>Hi</title>\n<h1>Hello World!<h1>");
+   fs.writeFileSync("./css/style.css","h1{\n\tcolor: red;\n}");
+   fs.writeFileSync("./js/main.js","var string = \"Hello World!\";\nalert(string);");
+   process.exit
+}

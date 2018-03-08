@@ -1,0 +1,1 @@
+export PATH="/s/files/jirengu/脚本:$PATH"
