@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yin-yang</title>
+    <style>
+        #yin-yang{
+            width: 96px;
+            height: 48px;   /*这是一个长方形*/
+            background: #eee;
+            border-color: red;
+            border-style: solid;    /*背景灰色、边框红色、边框实线*/
+            border-width: 2px 2px 50px 2px;
+            /*设置下边框是50px，加上之前的长方形就变成正方形了，并且还有填充的效果*/
+            border-radius: 100%;    /*变成圆*/
+            position: relative;
+        }
+        
+        #yin-yang:before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;    /*前面圆的位置*/
+            background: #eee;
+            border: 18px solid red;
+            /*这个圆底色和大大圆一样，边框红色，边框很粗*/
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;   /*前面圆的大小*/
+        }   /*在前面画了一个边框很粗的小圆，看着就像填充了一样*/
+        
+        #yin-yang:after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;  /*定位*/
+            background: red;
+            border: 18px solid #eee;
+            /*这个圆底色红色，边框颜色和大大圆一样，边框很粗*/
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+        }   /*在后面画了一个边框很粗的小圆，看着就像填充了一样*/
+    </style>
+</head>
+<body>
+    <div id="yin-yang">
+
+    </div>
+</body>
+</html>
