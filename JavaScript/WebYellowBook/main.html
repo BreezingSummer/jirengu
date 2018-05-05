@@ -8,7 +8,7 @@
 </head>
 <body>
     <header></header>
-    <main>
+    <main id="main">
         
     </main>
     <script>
@@ -23,7 +23,18 @@
             q:"qq.com",
             w:"weibo.com",
             y:"youdao.com",
-            
+            n:"nba.com"
+        }
+
+        
+        for(var i=0;i<keys.length;i++){
+            var main=document.getElementById("main");
+            var div=document.createElement("div");
+            main.appendChild(div);
+            for(var j=0;j<keys[i].length;j++){
+                var kbd=document.createElement("kbd");
+                div.appendChild(kbd);
+            }
         }
     </script>
     <footer></footer>
