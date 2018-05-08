@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>黄氏网址大全</title>
+    <link rel="stylesheet" href="./nav.css">
+</head>
+<body>
+    <header></header>
+    <main id="keyboard">
+        
+    </main>
+    <script>
+        var keys={
+            0:["q","w","e","r","t","y","u","i","o","p"],
+            1:["a","s","d","f","g","h","j","k","l"],
+            2:["z","x","c","v","b","n","m"],
+            length:3,
+        }
+        //默认键值
+        var hash={
+            q:"qq.com",
+            w:"weibo.com",
+            y:"youdao.com",
+            n:"nba.com",
+            r:""
+        }
+        //读档 LocalStorage
+        if(localStorage.getItem("FavWeb")){
+            hash=JSON.parse(localStorage.getItem("FavWeb"));
+        }
+
+        
+        for(var i=0;i<keys.length;i++){
+            var keyboard=document.getElementById("keyboard");
+            var div=document.createElement("div");
+            keyboard.appendChild(div);
+            for(var j=0;j<keys[i].length;j++){
+                var kbd=document.createElement("kbd");
+                kbd.textContent=keys[i][j];
+                var diy=document.createElement("button");
+                diy.textContent="自定义";
+                kbd.appendChild(diy);
+                div.appendChild(kbd);
+                //循环赋予自定义操作
+                diy.onclick=function(event){
+                    var thisdiy=event.target;
+                    // alert(thisdiy.parentNode.innerHTML.slice(0,1));
+                    var diyWeb=prompt("Enter Your Favourite Website")
+                    var index=thisdiy.parentNode.innerHTML.slice(0,1);
+                    if(diyWeb===""){
+                        if(confirm("Delete Shortcut For"+index+"?")){
+                            delete hash[index];
+                        }
+                    }else{
+                        hash[index]=diyWeb;
+                    }
+                    //存档到 LoacalStorage 里
+                    localStorage.setItem=("FavWeb",JSON.stringify(hash));
+                }
+            }
+        }
+
+        document.onkeypress=function(event){
+            var key=event.key;
+            var website=hash[key];
+            // alert(website);
+            // var realCode=event.which;
+            // alert(event.which||event.keyCode);
+            if(typeof(website)!="undefined"){
+                if(event.which>=48 && event.which<=122){
+                    window.open("https://"+website,"_blank");
+                }
+            }
+        }
+    </script>
+    <footer></footer>
+</body>
+</html>

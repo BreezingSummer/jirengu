@@ -1,0 +1,35 @@
+kbd{
+    border: 1px solid blue;
+    text-transform: uppercase;
+    width: 4em;
+    height: 4em;
+    display: inline-block;
+    margin: 3px;
+    position: relative;
+}
+
+#keyboard{
+    text-align: center;
+}
+
+#keyboard > div > kbd > button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.5em;
+    padding: 0;
+    display: none;
+}
+
+#keyboard > div > kbd:hover > button{
+    display: inline-block;
+}
+
+/* 
+#keyboard>div:nth-child(2){
+    margin-left: 1em;
+}
+
+#keyboard>div:nth-child(3){
+    margin-left: 1.3em;
+} */
