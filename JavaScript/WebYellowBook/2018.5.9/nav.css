@@ -1,0 +1,99 @@
+body{
+    background-image: url(./imgs/alum.png);
+}
+
+kbd{
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 0px rgba(117,117,117,1);
+
+    font-family: "Arial", Helvetica;
+    /* border: 1px solid blue; */
+    text-transform: uppercase;
+    width: 69px;
+    height: 69px;
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 13px;
+    position: relative;
+
+    cursor: pointer;
+}
+
+#keyboard{
+    text-align: center;
+}
+
+#keyboard > div > kbd > button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.5em;
+    padding: 0;
+    display: none;
+}
+
+#keyboard > div > kbd:hover > button{
+    display: inline-block;
+}
+
+.shift{
+    width: 166px;
+}
+
+.capslock{
+    width: 126px;
+}
+
+.tab,.delete{
+    width: 108px;
+}
+
+.enter{
+    width: 124px;
+}
+
+.Ctrl,.fn,.win,.Alt{
+    width: 71px;
+    height: 79px;
+}
+
+.space{
+    width: 403px;
+    height: 79px;
+}
+
+.←,.→,.↑,.↓{
+    width: 71px;
+    height: 38px;
+}
+
+/* .←,.→{
+    float: left;
+} */
+
+.←,.→{
+
+}
+
+.↑{
+    /* margin: 0 83px 13px 83px; */
+    position: absolute;
+}
+
+.↓{
+    /* display: inline-block; */
+    position: relative;
+    right: 0;
+    bottom: -42px;
+}
+
+/* 
+#keyboard>div:nth-child(2){
+    margin-left: 1em;
+}
+
+#keyboard>div:nth-child(3){
+    margin-left: 1.3em;
+} */

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>黄氏网址大全</title>
+    <link rel="stylesheet" href="./nav.css">
+</head>
+<body>
+    <header></header>
+    <main id="keyboard">
+        
+    </main>
+    <script>
+        var keys={
+            0:["~","1","2","3","4","5","6","7","8","9","0","-","=","delete"],
+            1:["tab","q","w","e","r","t","y","u","i","o","p","[","]","\\"],
+            2:["capslock","a","s","d","f","g","h","j","k","l",";","'","enter"],
+            3:["shift","z","x","c","v","b","n","m",",",".","/","shift"],
+            4:["Ctrl","fn","win","Alt","space","Alt","Ctrl","←","↑","↓","→"],
+            length:5,
+        }
+        //默认键值
+        var hash={
+            w:"weibo.com",
+            y:"youdao.com",
+            n:"nba.com",
+            r:""
+        }
+        //读档 LocalStorage
+        if(localStorage.getItem("FavWeb")){
+            hash=JSON.parse(localStorage.getItem("FavWeb"));
+        }
+
+        //生成按键
+        for(var i=0;i<keys.length;i++){
+            var keyboard=document.getElementById("keyboard");
+            var div=document.createElement("div");
+            keyboard.appendChild(div);
+            //生成按键内容
+            for(var j=0;j<keys[i].length;j++){
+                var kbd=document.createElement("kbd");
+                kbd.textContent=keys[i][j];
+                kbd.className=keys[i][j];  //为 kbd 加上 class 方便加样式
+                var diy=document.createElement("button");
+                diy.textContent="自定义";
+                kbd.appendChild(diy);
+                div.appendChild(kbd);
+                //循环赋予自定义操作
+                diy.onclick=function(event){
+                    var thisdiy=event.target;
+                    // alert(thisdiy.parentNode.innerHTML.slice(0,1));
+                    var diyWeb=prompt("Enter Your Favourite Website")
+                    var index=thisdiy.parentNode.innerHTML.slice(0,1);
+                    if(diyWeb===""){
+                        if(confirm("Delete Shortcut For"+index+"?")){
+                            delete hash[index];
+                        }
+                    }else{
+                        hash[index]=diyWeb;
+                    }
+                    //存档到 LocalStorage 里
+                    localStorage.setItem("FavWeb",JSON.stringify(hash));
+                }
+            }
+        }
+
+        document.onkeypress=function(event){
+            var key=event.key;
+            var website=hash[key];
+            // alert(website);
+            // var realCode=event.which;
+            // alert(event.which||event.keyCode);
+            if(typeof(website)!="undefined"){
+                if(event.which>=48 && event.which<=122){
+                    window.open("https://"+website,"_blank");
+                }
+            }
+        }
+    </script>
+    <footer></footer>
+</body>
+</html>
