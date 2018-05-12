@@ -1,0 +1,199 @@
+body{
+    background-image: url(./imgs/alum.png);
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header > button{
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 0px rgba(117,117,117,1);
+
+    font-size: 1.3em;
+    font-family: "Arial", Helvetica;
+
+    margin-right: 12px;
+    margin-bottom: 13px;
+
+    cursor: pointer;
+    z-index:888;
+}
+
+#allShortcuts{
+    display: none;
+}
+
+header > #nowKeys{
+    position: absolute;
+}
+
+header > #nowKeys:hover > ul{
+    display:block;
+    position: relative;
+    z-index:888;
+    margin:5px 15px;
+    padding:0;
+    text-align: left;
+    /* left: 100px;
+    top:100px; */
+}
+
+/* header > #nowKeys:hover > ul > li{
+    margin:0;
+    padding:0;
+} */
+
+kbd{
+    background-color: #000;
+    color: #fff;
+    border: 1.6px solid #E3E3E3;
+    border-style: outset;
+    /* border-image: linear-gradient(#f1f1f1,#5b5b5b)30 30; */
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 0px rgba(117,117,117,1);
+
+    font-size: 20px;
+    font-family: "Arial", Helvetica;
+    /* border: 1px solid blue; */
+    text-transform: uppercase;
+    width: 69px;
+    height: 69px;
+    line-height: 69px;
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 13px;
+    position: relative;
+
+    cursor: pointer;
+}
+
+#keyboard{
+    text-align: center;
+}
+
+/* 提示小灯 */
+#keyboard > div > kbd > span{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    padding: 2px;
+    /* display: none; */
+    border-radius: 1px;
+    border: 1px solid white;
+}
+
+.lighton{
+    background-color: green;
+}
+
+.disNone{
+    display: none;
+}
+
+/* 自定义按钮样式 */
+#keyboard > div > kbd > button{
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    font-size: 0.5em;
+    padding: 1px;
+    display: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #000;
+    color: white;
+}
+
+#keyboard > div > kbd:hover > button{
+    display: inline-block;
+}
+
+/* 图标 */
+#keyboard > div > kbd > img{
+    position: absolute;
+    left: 3px;
+    bottom: 2px;
+    width: 20px;
+}
+
+.shift{
+    width: 166px;
+}
+
+.capslock{
+    width: 126px;
+}
+
+.tab,.delete{
+    width: 108px;
+}
+
+.enter{
+    width: 124px;
+}
+
+.Ctrl,.fn,.win,.Alt{
+    width: 71px;
+    height: 79px;
+    line-height: 79px;
+}
+
+.space{
+    width: 403px;
+    height: 79px;
+    line-height: 79px;
+}
+
+.←,.→,.↑,.↓,.PgUp,.PgDown{
+    width: 74px;
+    height: 34px;
+    line-height: 34px;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+/* .←,.→{
+    float: left;
+} */
+
+.PgUp,.PgDown,.↑{
+    position: absolute;
+}
+.←,.↓,.→{
+    position: relative;
+    bottom: -21px;
+}
+
+/* .↑{
+    margin: 0 83px 13px 83px;
+    position: absolute;
+} */
+
+/* .↓{
+    display: inline-block; 
+    position: relative;
+    bottom: -24px;
+} */
+
+/* .PgDown{
+    position: absolute;
+} */
+
+/* .→{
+    position: relative;
+    bottom: -24px;
+} */
+
+/* 
+#keyboard>div:nth-child(2){
+    margin-left: 1em;
+}
+
+#keyboard>div:nth-child(3){
+    margin-left: 1.3em;
+} */
