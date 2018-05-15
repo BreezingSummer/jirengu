@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("canvas");
+    var context=canvas.getContext("2d");
+
+    context.strokeStyle="red";   //边框颜色
+    context.strokeRect(10,10,150,150);   //边框位置,(左上角坐标，右下角坐标)
+    context.fillStyle="blue";   //填充颜色
+    context.fillRect(10,10,100,100);   //填充位置，Rect表示正方形，(左上角坐标，右下角坐标)
+
+    context.clearRect(50,50,30,30);   //清除矩形块,（左上坐标，宽度，长度）
+
+    context.fillStyle="red";   //设置新的填充色
+    context.beginPath();   //开始标识
+    context.lineWidth=10;   //线框
+    context.moveTo(180,180);   //将光标（假想）移至（180，180）处
+    context.lineTo(200,180);   //这个点和上个点连线
+    context.lineTo(200,240);
+    context.stroke();   //表示描外框就行了，不用填充
+    context.closePath();   //闭合路径
+
+    context.beginPath();
+    context.arc(150,150,40,0,Math.PI/2);   //arc()画圆标识，（圆心，圆心，半径，起始角度.弧度，终止角度.弧度）
+    context.fill();   //表示填充
+</script>
+</html>

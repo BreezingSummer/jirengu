@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+        }
+
+        canvas{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    var onoff;
+    var x,y;
+
+    canvas.onmousedown=function(){
+        onoff="on";
+    }
+
+    document.onmouseup=function(){
+        onoff="off";
+        x=undefined;y=undefined;
+    }
+
+    canvas.onmousemove=function(event){
+        if(onoff==="on"){
+            var nx=event.clientX;
+            var ny=event.clientY;
+            drawCircle(nx,ny,5,"black");
+            drawLine(x,y,nx,ny,"red");
+            x=nx;
+            y=ny;
+        }
+    }
+
+    function drawCircle(nx,ny,r,color){
+        ctx.fillStyle=color;
+        ctx.beginPath();
+        ctx.arc(nx,ny,r,0,Math.PI*2);
+        ctx.fill();
+    }
+
+    function drawLine(x,y,nx,ny,color){
+        ctx.strokeStyle=color;
+        ctx.lineWidth=5;
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(nx,ny);
+        ctx.stroke();
+        ctx.closePath();
+    }
+</script>
+</html>
