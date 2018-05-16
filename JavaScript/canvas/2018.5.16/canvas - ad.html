@@ -14,6 +14,13 @@
             background-color: green;
         }
 
+        #eraserSize,#brushSize{
+            margin:0;
+            padding:0;
+            /* border:1px solid red; */
+            height:10px;
+        }
+        
         #function{
             position: fixed;
             left:0;
@@ -37,10 +44,12 @@
     <canvas id="canvas" width="500px" height="500px"></canvas>
     <div id="function" class="brushOn">
         <button id="eraser">橡皮擦</button>
+        <input id="eraserRangeValue" type="number" min="1" max="50" value="5" style="width:40px;height:20px;">
         <input id="eraserSize" type="range" min="1" max="50" step="1" value="5">    <!-- 2018.5.16添加橡皮擦大小 -->
         <button id="brush">画笔</button>
+        <input id="brushRangeValue" type="number" min="1" max="100" value="5" style="width:40px;height:20px;">
         <input id="brushSize" type="range" min="1" max="100" step="1" value="5">     <!-- 2018.5.16添加画笔大小 -->
-   </div>
+    </div>
 </body>
 <script>
     //获取用户界面宽高
@@ -65,6 +74,39 @@
     var brush=document.getElementById("brush");
     var brushSize=document.getElementById("brushSize");
     var eraserSize=document.getElementById("eraserSize");
+
+    //同时改变 box 和 range 的值
+    var eraserRangeBox=document.getElementById("eraserRangeValue");
+    eraserSize.onchange=function(){
+        eraserRangeBox.value=eraserSize.value;
+    }
+    eraserRangeBox.onchange=function(event){
+        // alert(event.target.max)
+        // alert(this.max)
+        var max=parseInt(event.target.max);
+        var min=parseInt(event.target.min);
+        if(this.value>max){
+            this.value="50";
+        }else if(this.value<min){
+            this.value="1";
+        }
+        eraserSize.value=eraserRangeBox.value;
+    }
+
+    var brushRangeBox=document.getElementById("brushRangeValue");
+    brushSize.onchange=function(){
+        brushRangeBox.value=brushSize.value;
+    }
+    brushRangeBox.onchange=function(event){
+        var max=parseInt(event.target.max);
+        var min=parseInt(event.target.min);
+        if(this.value>max){
+            this.value="100";
+        }else if(this.value<min){
+            this.value="1";
+        }
+        brushSize.value=brushRangeBox.value;
+    }
 
     //开启橡皮擦
     eraser.onclick=function(){
