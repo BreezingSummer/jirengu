@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- 自适应手机 meta:vp -->
+    <title>2018.5.17-canvas-ad</title>
+    <style>
+        body{
+            margin:0;
+        }
+
+        canvas{
+            background-color: green;
+        }
+
+        #eraserSize,#brushSize{
+            margin:0;
+            padding:0;
+            /* border:1px solid red; */
+            height:10px;
+        }
+        
+        #function{
+            position: fixed;
+            left:0;
+            top:0;
+            background-color:darkturquoise;
+            border-radius: 10px;
+            box-shadow: 6px 7px 2px 2px rgba(0,0,0,0.75);
+            padding:10px;
+        }
+
+        #function.eraserOn > #eraser{
+            background-color:coral;
+        }
+
+        #function.brushOn > #brush{
+            background-color:coral;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+    <div id="function" class="brushOn">
+        <button id="eraser">橡皮擦</button>
+        <input id="eraserRangeValue" type="number" min="1" max="50" value="5" style="width:40px;height:20px;">
+        <input id="eraserSize" type="range" min="1" max="50" step="1" value="5">    <!-- 2018.5.16添加橡皮擦大小 -->
+        <button id="brush">画笔</button>
+        <input id="brushRangeValue" type="number" min="1" max="100" value="5" style="width:40px;height:20px;">
+        <input id="brushSize" type="range" min="1" max="100" step="1" value="5">     <!-- 2018.5.16添加画笔大小 -->
+    </div>
+</body>
+<script>
+    //获取用户界面宽高
+    var screenWidth=document.documentElement.clientWidth;
+    var screenHeight=document.documentElement.clientHeight;
+
+    //得到canvas元素、上下文，指定canvas宽高和用户界面宽高一样
+    var canvas=document.getElementById("canvas");
+    canvas.width=screenWidth;
+    canvas.height=screenHeight;
+    var ctx=canvas.getContext("2d");
+
+    //定义功能键开关变量（鼠标按下才开），橡皮擦、画笔开关变量
+    var onoff=false;
+    var x,y;
+    var eraserOnOff=false;
+    var brushOnOff=true;
+
+    //获得各种功能的html
+    var functionButton=document.getElementById("function");
+    var eraser=document.getElementById("eraser");
+    var brush=document.getElementById("brush");
+    var brushSize=document.getElementById("brushSize");
+    var eraserSize=document.getElementById("eraserSize");
+
+    //同时改变 box 和 range 的值
+    var eraserRangeBox=document.getElementById("eraserRangeValue");
+    eraserSize.onchange=function(){
+        eraserRangeBox.value=eraserSize.value;
+    }
+    eraserRangeBox.onchange=function(event){
+        // alert(event.target.max)
+        // alert(this.max)
+        var max=parseInt(event.target.max);
+        var min=parseInt(event.target.min);
+        if(this.value>max){
+            this.value="50";
+        }else if(this.value<min){
+            this.value="1";
+        }
+        eraserSize.value=eraserRangeBox.value;
+    }
+
+    var brushRangeBox=document.getElementById("brushRangeValue");
+    brushSize.onchange=function(){
+        brushRangeBox.value=brushSize.value;
+    }
+    brushRangeBox.onchange=function(event){
+        var max=parseInt(event.target.max);
+        var min=parseInt(event.target.min);
+        if(this.value>max){
+            this.value="100";
+        }else if(this.value<min){
+            this.value="1";
+        }
+        brushSize.value=brushRangeBox.value;
+    }
+
+    //开启橡皮擦
+    eraser.onclick=function(){
+        eraserOnOff=true;
+        brushOnOff=false;
+        functionButton.className="eraserOn";    //2018.5.16功能激活提示
+    }
+
+    //开启画笔
+    brush.onclick=function(){
+        eraserOnOff=false;
+        brushOnOff=true;
+        functionButton.className="brushOn";    //2018.5.16功能激活提示
+    }
+
+    if(document.body.ontouchstart !== undefined){   //判断设备是否支持触摸，支持null，不支持undefined
+        //触摸时行动才开始，画笔时画下初始圆、橡皮擦擦掉初始方形
+        canvas.ontouchstart=function(event){
+            // console.log(event)
+            if(brushOnOff){
+                onoff=true;
+                drawCircle(event.touches[0].clientX,event.touches[0].clientY,brushSize.value,"red");  //自定义画笔大小brushSize.value
+            }else if(eraserOnOff){
+                onoff=true;
+                clearPic(event.touches[0].clientX,event.touches[0].clientY,eraserSize.value);
+            }
+            x=event.touches[0].clientX; //触摸设备支持多点触控，触摸位置存放在touches数组中，[0]第一个触摸点，[1]第二个触摸点，以此类推
+            y=event.touches[0].clientY;
+        }
+
+        //不触摸行动才结束
+        document.ontouchend=function(){
+            onoff=false;
+            x=undefined;y=undefined;
+        }
+
+        //触摸移动行动进行
+        canvas.ontouchmove=function(event){
+            var nx=event.touches[0].clientX;
+            var ny=event.touches[0].clientY;
+            if(brushOnOff && onoff){
+                drawCircle(nx,ny,brushSize.value,"red");
+                drawLine(x,y,nx,ny,brushSize.value*2,"red");
+            }else if(eraserOnOff && onoff){
+                clearPic(nx,ny,eraserSize.value);
+                clearLine(x,y,nx,ny,eraserSize.value);
+            }
+            x=nx;
+            y=ny;
+        }
+    }else{
+        //鼠标按下行动才开始，画笔时画下初始圆、橡皮擦擦掉初始方形
+        canvas.onmousedown=function(event){
+            if(brushOnOff){
+                onoff=true;
+                drawCircle(event.clientX,event.clientY,brushSize.value,"red");  //自定义画笔大小brushSize.value
+            }else if(eraserOnOff){
+                onoff=true;
+                clearPic(event.clientX,event.clientY,eraserSize.value);
+            }
+            x=event.clientX;
+            y=event.clientY;
+        }
+
+        //鼠标抬起行动才结束
+        document.onmouseup=function(){
+            onoff=false;
+            x=undefined;y=undefined;
+        }
+
+        //鼠标移动行动进行
+        canvas.onmousemove=function(event){
+            var nx=event.clientX;
+            var ny=event.clientY;
+            if(brushOnOff && onoff){
+                drawCircle(nx,ny,brushSize.value,"red");
+                drawLine(x,y,nx,ny,brushSize.value*2,"red");
+            }else if(eraserOnOff && onoff){
+                clearPic(nx,ny,eraserSize.value);
+                clearLine(x,y,nx,ny,eraserSize.value);
+            }
+            x=nx;
+            y=ny;
+        }
+    }
+
+    //画圈，主要用在第一笔和使线条连贯
+    function drawCircle(nx,ny,r,color){
+        ctx.fillStyle=color;
+        ctx.beginPath();
+        ctx.arc(nx,ny,r,0,Math.PI*2);
+        ctx.fill();
+    }
+
+    //鼠标移动位置点间连线，使看上去像是连贯的曲线
+    function drawLine(x,y,nx,ny,lineWidth,color){
+        ctx.strokeStyle=color;
+        ctx.lineWidth=lineWidth;
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(nx,ny);
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    //橡皮擦功能
+    function clearPic(nx,ny,size){
+        ctx.clearRect(nx,ny,size,size);
+    }
+    
+    //2018.5.16橡皮擦移动位置点间连线，使看上去像是连贯的擦除
+    function clearLine(x,y,nx,ny,size){
+        var sizeN=parseInt(size);
+        ctx.save();
+        ctx.beginPath();  
+        ctx.moveTo(x+sizeN,y);  
+        ctx.lineTo(nx+sizeN,ny);
+        ctx.lineTo(nx,ny+sizeN); 
+        ctx.lineTo(x,y+sizeN);
+        ctx.closePath(); 
+        ctx.clip();     //截取自上一个beginPath()开始的路径，作为画布
+        ctx.clearRect(0,0,canvas.width,canvas.height);  
+        ctx.restore();
+
+        ctx.save();  
+        ctx.beginPath();  
+        ctx.moveTo(x,y);  
+        ctx.lineTo(x+sizeN,y+sizeN);
+        ctx.lineTo(nx+sizeN,ny+sizeN); 
+        ctx.lineTo(nx,ny);   
+        ctx.closePath(); 
+        ctx.clip();
+        ctx.clearRect(0,0,canvas.width,canvas.height);  
+        ctx.restore();
+    }
+</script>
+</html>
