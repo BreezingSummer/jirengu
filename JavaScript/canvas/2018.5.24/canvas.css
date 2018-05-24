@@ -1,0 +1,90 @@
+.clearfix:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+
+body{
+    margin:0;
+    overflow: hidden;   /*2018.5.19隐藏滚动条*/
+}
+
+canvas{
+    background-color: green;
+}
+
+#function{
+    position: fixed;
+    left:5px;
+    top:4px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 6px 7px 2px 2px rgba(0,0,0,0.75);
+    padding: 10px;
+}
+
+.icon {
+    width: 1.5em; height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    padding: 7px;
+    transition: all 0.4s;   /*过渡加在原元素上，可实现全动画过渡*/
+}
+
+#function > .icon.active{
+    transform: scale(1.3);
+    fill: red;
+}
+
+#function > svg:hover{
+    transform: scale(1.3);  /*这种放大不会挤开其他元素 */
+    fill: red;
+}
+
+#sizeWrap{
+    margin: 6px 0 3px 0;
+}
+
+#size{
+    margin:0;
+    padding:0;
+    /* border:1px solid red; */
+    height:10px;
+}
+
+#sizebox{
+    margin: 0;
+    padding: 0;
+    width: 25px;
+}
+
+#chooseColor{
+    position: fixed;
+    left:10px;
+    top:83px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 6px 7px 2px 2px rgba(0,0,0,0.75);
+    padding: 3px;
+}
+
+#chooseColor li{
+    margin: 6px;
+    list-style: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid grey;
+    transition: all 0.3s;
+}
+
+#chooseColor > li:hover{
+    transform: scale(1.3);
+}
+
+#chooseColor > li.active{
+    transform: scale(1.2);
+}
