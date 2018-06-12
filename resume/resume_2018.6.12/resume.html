@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Philip Huang</title>
+    <link rel="stylesheet" href="./css/resume.css">
+    <script src="https://at.alicdn.com/t/font_601141_oxdp32al0pqwu3di.js"></script>
+    <style type="text/css">
+        .icon {
+            width: 1em; height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>    <!--2018.6.7添加filter:blur-->
+    <div id="loadingWrap">      <!--2018.6.7添加loading-->
+        <div id="loading"></div>
+    </div>
+    <script>
+        setTimeout(function(){
+            var loadingWrap=document.getElementById("loadingWrap");
+            loadingWrap.style.setProperty("display","none");
+            document.body.style.setProperty("filter","");
+        },1000);
+    </script>
+
+    <header class="clearfix">
+        <!--<img class="logo"></img>-->
+        <a href="" id="TopLogo">
+            <span id="Philip">Philip</span>
+            <span id="Huang">Huang</span>
+        </a>
+
+        <nav>
+            <ul class="clearfix">
+                <li><a href="#selfIntroduce">ABOUT</a></li>
+                <li id="navSkill">
+                    <a href="#SkillCard">SKILLS
+                            
+                    </a>
+                    <ul id="navSkillList" style="display:none">
+                            <li>HTML5 & css3</li>
+                            <li>JavaScript</li>
+                            <li>Jquery</li>
+                            <li>Vue</li>
+                            <li>React</li>
+                            <li>HTTP</li>
+                        </ul>
+                </li>
+                <li><a href="">EXPERIENCE</a></li>
+                <li><a href="#portfolio">WORKS</a></li>
+                <li><a href="">BLOG</a></li>
+                <li><a href="">CALENDAR</a></li>
+                <li><a href="">CONTACT</a></li>
+                <li><a href="">OTHER</a></li>
+            </ul>
+        </nav>
+
+        <script>
+            var wrapper=document.getElementById("wrapper");
+            var navSkill=document.getElementById("navSkill");
+            var navSkillList=document.getElementById("navSkillList");
+            navSkill.onmouseover=function(){
+                navSkillList.setAttribute("style","display:''");
+            }
+            navSkill.onmouseout=function(){
+                navSkillList.setAttribute("style","display:none");
+            }
+        </script>
+    </header>
+    <script>
+        var head=document.getElementsByTagName("header")[0];
+        window.onscroll=function(){
+            if(document.documentElement.scrollTop>=20){
+                head.classList.add("headfix");
+            }else{
+                head.classList.remove("headfix");
+            }
+        }
+    </script>
+
+
+    <div class="banner">
+        <div class="mask"></div>
+    </div>
+
+    <main id="selfIntroduce">
+        <div class="card">
+            <div class="upper clearfix">
+                <img src="./imgs/profilePIC.jpg" alt="" class="selphoto">
+                <div class="intro">
+                    <div class="welcome">
+                        Hello
+                        <span class="left-tri"></span>
+                    </div>
+                    <h1>黄国荣</h1>
+                    <h3>Philip Huang</h3>
+                    <p>前端开发小白菜</p>
+                    <hr>
+                    <dl>
+                        <dt>年龄</dt>
+                        <dd>23</dd>
+                        <dt>E-MAIL</dt>
+                        <dd>phil_huangguorong@163.com</dd>
+                        <dt>住址</dt>
+                        <dd>上海市</dd>
+                        <dt>联系电话</dt>
+                        <dd>137-618-10598</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <footer class="contacticon">
+                <a href="">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                </a>
+                <a href="">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                </a>
+                <a href="">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-bianfuxia"></use>
+                    </svg>
+                </a>
+                <a href="">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-bath"></use>
+                    </svg>
+                </a>
+                <a href="">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-twitter"></use>
+                    </svg>
+                </a>
+            </footer>
+        </div>
+
+        <div id="DButtonWrapper">
+            <a class="button" href="./my_resume/funny.jpg" download>download my resume</a>
+        </div>
+
+        <p id="selfintro">
+            <span>黄国荣</span><br>
+            <span>前端开发小白菜、饥人谷新晋学员</span><br>
+            <span>目标擅长：前端开发、Node.js开发、框架搭建</span>
+        </p>
+    </main>
+
+    <section id="SkillCard">
+        <h2>技能</h2>
+        <ul class="clearfix">
+            <li>
+                HTML5 &amp; css3
+                <div class="progressbar">
+                    <div class="progress" style="width:80%"></div>
+                </div>
+            </li>
+            <li>
+                JavaScript
+                <div class="progressbar">
+                    <div class="progress" style="width:80%"></div>
+                </div>
+            </li>
+            <li>
+                Jquery
+                <div class="progressbar">
+                    <div class="progress" style="width:70%"></div>
+                </div>
+            </li>
+            <li>
+                Vue
+                <div class="progressbar">
+                    <div class="progress" style="width:70%"></div>
+                </div>
+            </li>
+            <li>
+                React
+                <div class="progressbar">
+                    <div class="progress" style="width:70%"></div>
+                </div>
+            </li>
+            <li>
+                HTTP
+                <div class="progressbar">
+                    <div class="progress" style="width:60%"></div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2>作品集</h2>
+        <nav>
+            <ul class="clearfix">
+                <li id="workAll">所有</li>
+                <li id="workFrame">框架</li>
+                <li id="workJsCss">原生JS&amp;CSS</li>
+            </ul>
+            <div id="workSelectBar">
+                <div id="workSelect" class="workSelect_all"></div>
+            </div>
+        </nav>
+        <script>
+            var workSelect=document.getElementById("workSelect");
+
+            var workAll=document.getElementById("workAll");
+            workAll.onmouseover=function(){
+                workSelect.className="workSelect_all";
+            }
+            var workAll=document.getElementById("workFrame");
+            workAll.onmouseover=function(){
+                workSelect.className="workSelect_frame";
+            }
+            var workAll=document.getElementById("workJsCss");
+            workAll.onmouseover=function(){
+                workSelect.className="workSelect_JsCss";
+            }
+        </script>
+
+        <div class="works">
+            <div class="big"></div>
+            <div class="middle"></div>
+            <div class="small"></div>
+        </div>
+    </section>
+</body>
+<!-- 2018.6.10缓动至<a>锚点处 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
+<script>
+    //2018.6.7添加<a>精准锚点
+    var aArray=document.querySelectorAll("header > nav > ul > li > a");
+    // console.log(aArray)
+    for(var i=0;i<aArray.length;i++){
+        aArray[i].onclick=function(event){
+            event.preventDefault();
+            var href=event.target.getAttribute("href");
+            // console.log(href)
+            var target=document.querySelector(href);
+            var top=target.offsetTop-70;
+            var currentPosition=window.scrollY;
+            // alert(top-8);
+            // alert(currentPosition);
+            // alert(top);
+            var currentPositionTween={y:currentPosition};
+
+            var tween=new TWEEN.Tween(currentPositionTween)
+                .to({y:top},1000)
+                .easing(TWEEN.Easing.Quadratic.InOut)
+                .onUpdate(function(){
+                    window.scrollTo(0,currentPositionTween.y);
+                })
+                .start();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                TWEEN.update();
+            }
+            requestAnimationFrame(animate);
+        }
+    }
+</script>
+</html>
