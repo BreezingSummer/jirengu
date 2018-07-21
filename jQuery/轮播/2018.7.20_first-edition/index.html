@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery轮播</title>
+    <style>
+        #img_wrap{
+            display: flex;
+            transition: all 0.5s;
+  
+        } 
+        #img_window{
+            width: 400px;
+            overflow: hidden;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="img_window">
+        <div id="img_wrap">
+            <img src="./imgs/gotham-city-sirens-1.jpg">
+            <img src="./imgs/gotham-city-sirens-2.png">
+            <img src="./imgs/gotham-city-sirens-3.jpg">
+        </div>
+    </div>
+    
+    <button id="p1">第1张</button>
+    <button id="p2">第2张</button>
+    <button id="p3">第3张</button>
+      
+</body>
+<script src="../../JQuery_V3.3.1.js"></script>
+<script src="./js/changepics.js"></script>
+</html>
