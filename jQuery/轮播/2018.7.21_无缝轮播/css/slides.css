@@ -1,0 +1,43 @@
+#img_window{
+    width: 400px;
+    overflow: hidden;
+}
+
+#img_wrap{
+    display: flex;
+    transition: all 0.5s;
+    position: relative;
+    width: 400px;
+    height: 300px;
+} 
+
+img{
+    width: 400px;
+    height: 300px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s;
+}
+
+img.formerImg{
+    transform: translateX(-100%);
+}
+
+img.currentImg{
+    transform: translateX(0);
+    z-index: 3;
+}
+
+img.laterImg{
+    transform: translateX(100%);
+}
+
+button{
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+.button_active{
+    background: red;
+}
