@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击&消失</title>
+</head>
+<script src="../JQuery_V3.3.1.js"></script>
+<style>
+    #wrap{
+        position: relative;
+        /* border: 1px solid red; */
+        margin: 10px 10px;
+        display: inline-block;
+    }
+
+    #fuceng{
+        display:none;
+        position: absolute;
+        border:1px solid red;
+        border-radius: 5px;
+        left:100%;top:0;
+        padding: 5px;
+        white-space: nowrap;
+        margin-left: 6px;
+    }
+
+    #fuceng::before{
+        content:"";
+        display: block;
+        position: absolute;
+        /* width: 0; 
+        height: 0;  */
+        right:100%;top:3px;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-right: 7px solid red;
+    }
+</style>
+<body>
+    <div id="wrap">
+        <button id="clickme">Click Me</button>
+        <div id="fuceng">
+            gone with the wind
+        </div>
+    </div>
+</body>
+<script>
+    $("#clickme").on("click",function(e){
+        // console.log("clickme-clicked");
+        $("#fuceng").show();
+    })
+
+    $("#wrap").on("click",function(e){
+        e.stopPropagation();
+    })
+
+    $(document).on("click",function(){
+        // console.log("document-clicked");
+        $("#fuceng").hide();
+    })
+</script>
+</html>
