@@ -8,20 +8,20 @@ init_slides();
 // console.log(0%3,1%3,2%3,3%3)
 var n=1;
 var slides_timer = setInterval(function(){
-    // console.log(n);
+    //console.log(n+"1");
     make_formerImg(getImg(n))
     .one("transitionend",function(e){
-        // console.log(n);
+        //console.log(n+"2");
         make_laterImg($(e.currentTarget))
     });
     make_currentImg(getImg(n+1));
 
-    // console.log(n,n%img_number)
+    //console.log(n+"3",n%img_number)
     allbuttons.eq(n%img_number).addClass("button_active")
     .siblings(".button_active").removeClass("button_active");
 
     n += 1;
-},1000)
+},2000)
 
 function init_slides(){
     $("#img_wrap > img:nth-child(1)").addClass("currentImg");
@@ -74,6 +74,28 @@ $("#img_window").on("mouseleave",function(){
     },1000)
 })
 
+//防止离开页面后再回来，动画可能会跳帧的情况
+document.addEventListener("visibilitychange",function(e){
+    if(document.hidden){
+        clearInterval(slides_timer);
+    }else{
+        slides_timer = setInterval(function(){
+            // console.log(n);
+            make_formerImg(getImg(n))
+            .one("transitionend",function(e){
+                // console.log(n);
+                make_laterImg($(e.currentTarget))
+            });
+            make_currentImg(getImg(n+1));
+        
+            // console.log(n,n%img_number)
+            allbuttons.eq(n%img_number).addClass("button_active")
+            .siblings(".button_active").removeClass("button_active");
+        
+            n += 1;
+        },1000)
+    }
+})
 
 // $("#p1").on("click",function(){
 //     $("#img_wrap").css("transform","translateX(0)");
