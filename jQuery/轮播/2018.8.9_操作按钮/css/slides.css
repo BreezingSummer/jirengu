@@ -22,10 +22,12 @@ img{
 
 img.formerImg{
     transform: translateX(-100%);
+    z-index: 0;
 }
 
 img.currentImg{
     transform: translateX(0);
+    z-index: 10;
 }
 
 img.laterImg{
