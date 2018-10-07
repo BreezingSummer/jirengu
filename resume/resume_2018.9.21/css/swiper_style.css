@@ -1,0 +1,26 @@
+#slide{
+    width: 800px;
+    margin: 50px auto;
+}
+
+.swiper-container {
+    /* height: 500px; */
+    background: white;
+    
+    border-radius: 17%;
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+    width: 60px;
+    height: 60px;
+    background-color: lightcyan;
+    border-radius: 50%;
+}
+
+#slide h2{
+    text-align: center;
+    letter-spacing: 30px;
+    text-indent: 30px;
+    margin-bottom: 30px;
+}

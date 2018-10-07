@@ -1,0 +1,67 @@
+#commitArea {
+    width: 940px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    margin-bottom: auto;
+}
+
+#commitArea > ul{
+    border-top: 2px solid #dbe6ec;
+    border-bottom: 2px solid #dbe6ec;
+}
+
+#commitArea > ul > li{
+    border-top: 1px solid #e4ecf1;
+    border-bottom: 1px solid #f0f6f8;
+    padding: 20px;
+    border-radius: 13px;
+}
+
+#commitArea > ul > li:nth-child(odd){
+    background-color: #f7fbfc;
+}
+
+#commitArea > ul > li:nth-child(even){
+    background-color: #ffffff;
+}
+
+#commitArea h2{
+    text-align: center;
+    letter-spacing: 30px;
+    text-indent: 30px;
+    margin-bottom: 30px;
+}
+
+#commit{
+    margin-top:10px;
+}
+
+#commit input[type="text"],[type="submit"]{
+    display: block;
+    box-sizing: border-box;
+    border-radius:13px;
+    border:1px solid #c8cccf;
+    color:#6a6f77;
+    height:30px;
+}
+
+#commit input[type="text"]{
+    padding:20px;
+    width:45%;
+}
+
+#commit input[type="submit"]{
+    height:30px;
+    width: 100px;
+    margin-top: 3px;
+}
+
+#commit input[type="text"]:focus{
+    background:rgba(255,192,203,0.7);
+    border:1px solid #ff7496;
+}
+
+#commit input[type="submit"]:focus{
+    border:1px solid #4f5358;
+    box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.75);
+}
