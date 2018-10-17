@@ -14,6 +14,6 @@ function component() {
 }
 
 document.body.appendChild(component());
-console.log(aTriple(3));
+console.log(aTriple(10));
 console.log(fangfang());
 console.log(fangfang);
