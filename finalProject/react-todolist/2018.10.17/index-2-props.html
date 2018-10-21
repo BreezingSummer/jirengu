@@ -15,13 +15,12 @@
 
         class Myname extends React.Component{
             render(){
-                return (<button>Batman</button>);
+                return (<button type={this.props.buttontype}>{this.props.children}</button>);
             }
         };
 
         ReactDOM.render(
-            
-                <Myname/>
+            <Myname buttontype="submit">Batman</Myname>
             ,
             container
         );
