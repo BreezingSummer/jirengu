@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lightning</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        var container = document.querySelector("#container");
+
+        class Times extends React.Component{
+           constructor(props){
+               super(props);
+               this.state = {
+                   strike: 0,
+               };
+           }
+
+            componentDidMount() {
+                setInterval(() => this.addNumber(),1000);
+            }
+
+            addNumber(){
+                // console.log(this)
+                this.setState({
+                    strike: this.state.strike + 100,
+                });
+            }
+
+            render(){
+                var strikeStyle = {
+                    margin: 0,
+                    padding: "55px",
+                    color: "#5dffff",
+                    fontSize: "60px",
+                }
+            
+                return (<h1 style={strikeStyle}>{this.state.strike}</h1>);
+            }
+        };
+
+        class Words extends React.Component{
+            render(){
+                var words = {
+                    fontFamily: "sans-serif",
+                    margin: 0,
+                    padding: 0,
+                };
+                var wordStyle = {
+                    wordNormal: {
+                        ...words,
+                        color: "#999999",
+                        fontSize: 33,
+                    },
+                    wordBig: {
+                        ...words,
+                        color: "#999999",
+                        fontSize: 50,
+                    },
+                    wordSmall: {
+                        ...words,
+                        color: "#4d4d4d",
+                    },
+                }
+
+                return (
+                    <div>
+                        <p style = {wordStyle.wordNormal}>lightning strike</p>
+                        <p style = {wordStyle.wordBig}>worldwide</p>
+                        <p style = {wordStyle.wordSmall}>(since you loaded this outstanding)</p>
+                    </div>
+                );
+            }
+        };
+
+        class BlackBoard extends React.Component{
+            render(){
+                return (
+                    <div style = {this.props.style}>
+                        <Times/>
+                        <Words/>
+                    </div>
+                );
+            }
+        };
+
+        class Board extends React.Component{
+            render(){
+                var boardStyle = {
+                    board: {
+                        width: 300,
+                        height: 400,
+                        padding: 13,
+                        backgroundColor: "white",
+                        border: "2px solid black",
+                    },
+                    blackboard: {
+                        height: "100%",
+                        backgroundColor: "black",
+                        borderRadius: "7%",
+                        textAlign: "center",
+                        lineHeight: "50px",
+                    }
+                };
+
+                return (
+                    <div style={boardStyle.board}>
+                        <BlackBoard style = {boardStyle.blackboard}/>
+                    </div>
+                );
+            }
+        };
+
+        ReactDOM.render(
+            <Board/>
+            ,container
+        );
+    </script>
+</body>
+</html>
