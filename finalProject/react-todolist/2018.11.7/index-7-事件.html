@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react-event</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        #container{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        var container = document.querySelector("#container");
+
+        class Button extends React.Component{
+            render(){
+                var buttonStyle = {
+                    fontSize: "2em",
+                    fontFamily: "sans-serif",
+                    color: "#333",
+                    fontWeight: "bold",
+                }
+
+                return (<button style={buttonStyle} onClick={this.props.clickHandler}>+</button>)
+            }
+        }
+
+        class Show extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    number: 0,
+                };
+            }
+
+            increase(e){
+                // console.log(this)
+                // console.log(e)
+                var num = this.state.number;
+                if(e.shiftKey){
+                    num += 10;
+                }else{
+                    num += 1;
+                }
+                this.setState({
+                    number: num,
+                });
+            }
+
+            render(){
+                var show = {
+                    fontSize: 72,
+                    fontFamily: "sans-serif",
+                    color: "#333",
+                    fontWeight: "bold",
+                    marginBottom: 10,
+                }
+
+                return (
+                    <div>
+                        <p style={show} onClick={this.increase}>{this.state.number}</p>
+                        <Button clickHandler={this.increase.bind(this)}/>
+                    </div>
+                )
+            }
+        }
+
+        class Board extends React.Component{
+            render(){
+                var boardStyle = {
+                    textAlign: "center",
+                    margin: "auto",
+                    alignSelf: "center",
+                    backgroundColor: "#ffc622",
+                    borderRadius: 30,
+                    width: "93%",
+                    height: "93%",
+                };
+
+                return (
+                    <div style={boardStyle}>
+                        <Show/>
+                    </div>);
+            }
+        };
+
+        ReactDOM.render(
+            <Board/>,
+            container
+        )
+    </script>
+</body>
+
+</html>

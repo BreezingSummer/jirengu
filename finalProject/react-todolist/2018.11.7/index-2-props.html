@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React First Try</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        var container = document.querySelector("#container");
+
+        class Myname extends React.Component{
+            render(){
+                return (<button type={this.props.buttontype}>{this.props.children}</button>);
+            }
+        };
+
+        ReactDOM.render(
+            <Myname buttontype="submit">Batman</Myname>
+            ,
+            container
+        );
+    </script>
+</body>
+</html>
