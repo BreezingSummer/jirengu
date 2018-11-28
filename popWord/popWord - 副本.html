@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>popWord</title>
+    <link href="./highlight/prism.css" rel="stylesheet"/>
+    <script src="./highlight/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    <style>
+        #display{
+            opacity: 0;
+            background: rgb(48, 48, 48);
+            border: 1px solid #ccc;
+            width: 49%;
+            height: 94vh;
+            box-shadow: 6px 6px 2px 0 rgba(0,0,0,0.3);
+            margin: 10px;
+
+            position: absolute;
+            right: 100px;
+            top: 0;
+        }
+        #display > div{
+            width: 100%;
+            height: 100%;
+            background: url(./img/batman-1.jpg);
+            background-size: 100% 103%;
+        }
+
+*{ 
+    margin: 0;
+    padding: 0;
+    transition: all 1s;
+}
+
+/*
+* Beautiful, Lovely
+* 来点背景？
+*/
+body{
+    background: rgb(63,82,99);
+}
+
+/*
+* Oops!字看不见了~
+*/
+pre{
+    color: white;
+}
+
+
+
+/*
+* Better?
+*/
+.token.property{color: #ff5db7;}
+
+/*Better!!*/
+
+/*
+* Marvelous!!
+* Another thing:圈地为王是必要的！！我的我的都是我的！
+*/
+body{
+    overflow: hidden;
+}
+
+#content{
+    background: rgb(48, 48, 48);
+    border: 1px solid #ccc;
+    width: 49%;
+    height: 90vh;
+    overflow: auto;
+    font-size: 14px;
+    padding: 10px 10px 20px;
+    box-shadow: 6px 6px 2px 0 rgba(0,0,0,0.3);
+    margin: 10px;
+}
+
+/*
+* 2D有点平淡了，3D才酷炫！
+*/
+#content{
+    transform: rotateY(5deg);
+    transform-origin: left;
+}
+
+/*
+* WHAT!!没反应？试试这样？
+*/
+body{
+    perspective: 1000px;
+}
+
+/*
+* OK 对现在来说很酷了，但我是谁呢？
+* 没错！我是旺宝啊公！！
+*     ︵︵ 
+* ("\\(●-●)
+* \\ /    0\\ \\
+*  (       )"
+*   \\__T__/
+*/
+#display{opacity: 1;}
+
+/*
+* Nope!That\`s not me!
+*/
+#display > div{
+    background: url(./img/batman-3.jpg);
+    background-size: 100% 100%;
+}
+
+/*
+* That\`s more like me~
+*/
+#display > div{
+    background: url(./img/batman-2.jpg);
+    background-size: 100% 100%;
+}
+
+
+
+    </style>
+    <style id="cssStyle"></style>
+</head>
+<body>
+    <pre id="content"></pre>
+    <div id="display">
+        <div></div>
+    </div>
+</body>
+<script src="./pop.js"></script>
+</html>
