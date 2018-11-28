@@ -17,7 +17,7 @@ var clock = setInterval(function(){
         content.innerHTML = Prism.highlight(content.innerHTML,Prism.languages.css);
         word1();
     }
-},10);
+},70);
 
 function word1(){
 
@@ -35,7 +35,7 @@ function word1(){
             word2();
             intro();
         }
-    },20);
+    },70);
 }
 
 function word2(){
@@ -50,7 +50,7 @@ function word2(){
         }else{
             clearInterval(clock2);
         }
-    },20);
+    },70);
 }
 
 function intro(){
@@ -64,6 +64,6 @@ function intro(){
         }else{
             clearInterval(clockIntro);
         }
-    },20);
+    },60);
 }
 
