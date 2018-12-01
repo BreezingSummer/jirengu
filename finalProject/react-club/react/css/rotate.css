@@ -1,0 +1,386 @@
+#tri,
+#tri > .rotateTri,
+#tri > .rotateTri_1,
+#tri > .rotateTri_2,
+#tri .outerTri,
+#tri .coreTri{
+    transform-style: preserve-3d;
+}
+
+
+#tri .rotateTri_1{
+    --width:400px;
+    width: var(--width);
+    height:calc(var(--width)/2*1.732);
+	position:relative;
+    margin:200px 250px;
+    
+    
+    /* perspective: 1000px; */
+    animation: rotate_1 10s infinite linear;
+    transform:  rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition:all 1s;
+
+    
+}
+
+#tri .rotateTri_1:hover .outerTri{
+    /* visibility: visible; */
+    transform: translate3d(0,0,0);
+
+    --width: 400px;
+}
+
+#tri .rotateTri_1:hover .outerTri > div{
+    visibility: visible;
+}
+
+.rotateTri_1 .coreTri{
+    position: absolute;
+    transform: translate3d(100px, 130px, 70px);
+    --width:200px;
+    width: var(--width);
+    height:calc(var(--width)/2*1.732);
+}
+
+#tri .rotateTri_1 .coreTri > div{
+    box-sizing: border-box;
+    opacity: 0.4;
+    position:absolute;
+    /* background-color: grey; */
+    /* border: 1px solid red; */
+    
+    width: 100%;
+    height: 100%;
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+    /* transform-origin: 50% 100%; */
+
+    /* width: 0; 
+    height: 0; 
+    border-left: 100px solid transparent; 
+    border-right: 100px solid transparent; 
+    border-bottom: 173.2px solid red; */
+    /* border-top: 173.2px solid transparent; */
+}
+
+/* #tri .rotateTri_1 .innerTri{
+    width: 100%;
+    height: 100%;
+}
+
+#tri .rotateTri_1 .outerTri{
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    right: -50%;
+    transition: all 1s;
+} */
+
+/* #tri .rotateTri_1 .innerTri p{
+    text-align: center;
+    margin-top: 50%;
+} */
+
+/* #tri .rotateTri_1 .outerTri p{
+    text-align: center;
+    margin-top: 50%;
+    transform: rotate(90deg);
+} */
+
+#tri .rotateTri_1 .coreTri .core_triangle_1{
+    /* border-bottom-color: rgba(48, 199, 73, 0.5); */
+    background: rgba(48, 199, 73, 0.5);
+    transform: rotateX(-19.5deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_1 .coreTri .core_triangle_2{
+    /* border-bottom-color: rgba(155, 153, 248, 0.5); */
+    background: rgba(155, 153, 248, 0.5);
+    transform: rotateX(-90deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_1 .coreTri .core_triangle_3{
+    /* border-bottom-color: rgba(234, 238, 29, 0.5); */
+    background: rgba(234, 238, 29, 0.5);
+	transform:rotateY(-60deg) rotateX(19.5deg);
+	transform-origin: 0% 100%;
+}
+
+#tri .rotateTri_1 .coreTri .core_triangle_4{
+    /* border-bottom-color:rgba(208, 19, 255, 0.5); */
+    background: rgba(208, 19, 255, 0.5);
+    transform: rotateY(60deg) rotateX(19.5deg);
+    transform-origin: 100% 100%;
+}
+
+/* #tri .rotateTri_1 .core_triangle_4{
+    background:rgba(108, 255, 89, 0.5);
+} */
+
+
+@keyframes rotate_1{
+	0%{transform:  rotateX(25deg) rotateY(0deg);}
+	100%{transform:  rotateX(25deg) rotateY(360deg);}
+}
+
+/* 
+#tri .rotateTri_1 .outer_triangle_1{
+    background:rgba(155, 153, 248, 0.5);
+	transform: translateZ(-50px) rotateX(-70.5deg);
+	transform-origin:0 100%;
+}
+
+#tri .rotateTri_1 .outer_triangle_2{
+    background: rgba(153,92,127,0.5);
+	transform: translateZ(-50px) rotate3d(100, -173.2, 0, 70.5deg);
+	transform-origin:0 100%;
+}
+
+#tri .rotateTri_1 .outer_triangle_3{
+    background:rgba(217, 230, 101, 0.5);
+    transform: translateZ(-50px) rotate3d(-100, -173.2, 0, -70.5deg);
+    transform-origin: 100% 100%;
+}
+
+#tri .rotateTri_1 .outer_triangle_4{
+    background:rgba(108, 255, 89, 0.5);
+    transform: translateZ(-50px);
+}
+*/
+
+.rotateTri_1 .outerTri{
+    transform: translate3d(100px, 130px, 70px);
+
+    position: absolute;
+    /* width: 400px;
+    height: 346.4px; */
+
+    --width: 200px;
+    width: var(--width);
+    height:calc(var(--width)/2*1.732);
+
+    /* width:100%;
+    height:100%; */
+
+    transition: all 1s linear;
+}
+
+#tri .rotateTri_1 .outerTri > div{
+    box-sizing: border-box;
+    opacity: 0.4;
+    position:absolute;
+    /* top:0;left:0; */
+    /* background-color: grey; */
+    /* border: 1px solid red; */
+    
+    width: 100%;
+    height: 100%;
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+    /* transform-origin: 50% 100%; */
+    visibility: hidden;
+    transition: all 1s linear;
+
+    /* width: 0; 
+    height: 0;
+    border-left: 200px solid transparent; 
+    border-right: 200px solid transparent; 
+    border-bottom: 346.4px solid red; */
+    /* border-top: 173.2px solid transparent; */
+}
+
+#tri .rotateTri_1 .outerTri .outer_triangle_1{
+    /* border-bottom-color: rgba(234, 238, 29, 0.5); */
+    background: rgba(234, 238, 29, 0.5);
+    transform: rotateX(-19.5deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_1 .outerTri .outer_triangle_2{
+    /* border-bottom-color: rgba(208, 19, 255, 0.5); */
+    background: rgba(208, 19, 255, 0.5);
+    transform: rotateX(-90deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_1 .outerTri .outer_triangle_3{
+    /* border-bottom-color: rgba(48, 199, 73, 0.5); */
+    background: rgba(48, 199, 73, 0.5);
+	transform:rotateY(-60deg) rotateX(19.5deg);
+	transform-origin: 0% 100%;
+}
+
+#tri .rotateTri_1 .outerTri .outer_triangle_4{
+    /* border-bottom-color: rgba(155, 153, 248, 0.5); */
+    background: rgba(155, 153, 248, 0.5);
+    transform: rotateY(60deg) rotateX(19.5deg);
+    transform-origin: 100% 100%;
+}
+
+
+
+
+
+
+
+
+
+
+#tri .rotateTri_2{
+    --width:400px;
+    width: var(--width);
+    height:calc(var(--width)/2*1.732);
+	position:relative;
+    margin:200px 250px;
+    
+    
+    animation: rotate_2 10s infinite linear;
+    transform:  rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition: all 1s;
+}
+
+
+.rotateTri_2 .coreTri{
+    position: absolute;
+    transform: translate3d(100px, 130px, 70px);
+    --width:200px;
+    width: var(--width);
+    height:calc(var(--width)/2*1.732);
+}
+
+#tri .rotateTri_2 .coreTri > div{
+    box-sizing: border-box;
+    opacity: 0.4;
+    position:absolute;
+    
+    width: 100%;
+    height: 100%;
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+#tri .rotateTri_2 .coreTri .core_triangle_1{
+    background: rgba(48, 199, 73, 0.5);
+    transform: rotateX(-19.5deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_2 .coreTri .core_triangle_2{
+    background: rgba(155, 153, 248, 0.5);
+    transform: rotateX(-90deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_2 .coreTri .core_triangle_3{
+    background: rgba(234, 238, 29, 0.5);
+	transform:rotateY(-60deg) rotateX(19.5deg);
+	transform-origin: 0% 100%;
+}
+
+#tri .rotateTri_2 .coreTri .core_triangle_4{
+    background: rgba(208, 19, 255, 0.5);
+    transform: rotateY(60deg) rotateX(19.5deg);
+    transform-origin: 100% 100%;
+}
+
+/* #tri .rotateTri_2 .coreTri .core_triangle_4 p{
+    transform: translate(180deg);
+} */
+
+@keyframes rotate_2{
+	0%{transform:  rotateX(25deg) rotateY(0deg);}
+	100%{transform:  rotateX(25deg) rotateY(360deg);}
+}
+
+#tri .rotateTri_2 .coreTri p{
+    text-align: center;
+    margin-top: 50%;
+}
+
+#tri .rotateTri_2 .outerTri p{
+    text-align: center;
+    margin-top: 50%;
+}
+
+.rotateTri_2 .outerTri{
+    transform: translate3d(100px, 130px, 70px);
+
+    position: absolute;
+
+    --width: 200px;
+    width: var(--width);
+    height:calc(var(--width)/2*1.732);
+
+    transition: all 1s linear;
+}
+
+#tri .rotateTri_2 .outerTri > div{
+    box-sizing: border-box;
+    opacity: 0.4;
+    position:absolute;
+
+    
+    width: 100%;
+    height: 100%;
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+
+    visibility: hidden;
+    transition: all 1s linear;
+}
+
+#tri .rotateTri_2 .outerTri .outer_triangle_1{
+
+    transform: rotateX(-19.5deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_2 .outerTri .outer_triangle_2{
+
+    transform: rotateX(-90deg);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_2 .outerTri .outer_triangle_3{
+
+	transform:rotateY(-60deg) rotateX(19.5deg);
+	transform-origin: 0% 100%;
+}
+
+#tri .rotateTri_2 .outerTri .outer_triangle_4{
+
+    transform: rotateY(60deg) rotateX(19.5deg);
+    transform-origin: 100% 100%;
+}
+
+#tri .rotateTri_2:hover .outerTri{
+    transform: translate3d(0,0,0);
+    --width: 400px;
+}
+
+#tri .rotateTri_2:hover .outerTri > div{
+    visibility: visible;
+}
+
+#tri .rotateTri_2:hover .outerTri .outer_triangle_1{
+    background: rgba(234, 238, 29, 0.5);
+    transform: rotateX(-19.5deg) translate3d(0, 0, -50px);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_2:hover .outerTri .outer_triangle_2{
+    background: rgba(208, 19, 255, 0.5);
+    transform: rotateX(-90deg) translate3d(0, 0, 50px);
+    transform-origin: 50% 100%;
+}
+
+#tri .rotateTri_2:hover .outerTri .outer_triangle_3{
+    background: rgba(48, 199, 73, 0.5);
+	transform:rotateY(-60deg) rotateX(19.5deg) translate3d(0, 0, 50px);
+	transform-origin: 0% 100%;
+}
+
+#tri .rotateTri_2:hover .outerTri .outer_triangle_4{
+    background: rgba(155, 153, 248, 0.5);
+    transform: rotateY(60deg) rotateX(19.5deg) translate3d(0, 0, 50px);
+    transform-origin: 100% 100%;
+}

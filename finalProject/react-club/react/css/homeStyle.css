@@ -1,0 +1,142 @@
+
+#main > .mainLeft,
+#main > .mainLeft .rotateTri{
+    transform-style: preserve-3d;
+}
+
+#main > .mainLeft,
+#main > .mainMiddle,
+#main > .mainRight{
+    float: left;
+}
+
+#main > .mainLeft{
+    position: relative;
+    width: 250px;
+    height: 300px;
+}
+
+#main > .mainLeft .rotateTri{
+    --width:200px;
+    --height:calc(var(--width)/2*1.732);
+    /* width: 10px;
+    height: 10px; */
+    /* position: absolute;
+    top: calc(var(--height)*1.1);
+    left: 50%; */
+    /* margin:50px 200px 200px 100px; */
+    
+    animation: rotateLeft 10s infinite linear;
+    transform:  rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform-origin: 50% 50% 60px;
+}
+
+#main > .mainLeft .rotateTri > a{
+    display: block;
+    box-sizing: border-box;
+    opacity: 0.9;
+    position: absolute;
+    /* top: -140px;
+    left: calc(var(--width)/-1.8); */
+    margin: 10px;
+    
+    width: var(--width);
+    height: var(--height);
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+#main > .mainLeft .rotateTri .core_triangle_1{
+    background: rgba(48, 199, 73, 1);
+    transform: rotateX(-19.5deg) rotateY(180deg);
+    transform-origin: 50% 100%;
+}
+
+#main > .mainLeft .rotateTri .core_triangle_2{
+    background: rgba(155, 153, 248, 1);
+    transform: rotateX(-90deg);
+    transform-origin: 50% 100%;
+}
+
+#main > .mainLeft .rotateTri .core_triangle_3{
+    background: rgba(234, 238, 29, 1);
+	transform: rotateY(-60deg) rotateX(19.5deg);
+	transform-origin: 0% 100%;
+}
+
+#main > .mainLeft .rotateTri .core_triangle_4{
+    background: rgba(208, 19, 255, 1);
+    transform: rotateY(60deg) rotateX(19.5deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes rotateLeft{
+	0%{transform:  rotateY(0deg);}
+	100%{transform:  rotateY(360deg);}
+}
+
+#main > .mainLeft .rotateTri a p{
+    text-align: center;
+    margin-top: 50%;
+}
+
+#main > .mainLeft .rotateTri:hover{
+    animation-play-state: paused;
+}
+
+#main > .mainLeft .rotateTri > .core_triangle_1:hover{
+    transform: rotateX(-19.5deg) rotateY(180deg) translate3d(0, 0, 20px);
+}
+
+#main > .mainLeft .rotateTri > .core_triangle_2:hover{
+    transform: rotateX(-90deg) translate3d(0, 0, 20px);
+}
+
+#main > .mainLeft .rotateTri > .core_triangle_3:hover{
+	transform:rotateY(-60deg) rotateX(19.5deg) translate3d(0, 0, 20px);
+}
+
+#main > .mainLeft .rotateTri > .core_triangle_4:hover{
+    transform: rotateY(60deg) rotateX(19.5deg) translate3d(0, 0, 20px);
+}
+
+#main > .mainMiddle .intro{
+    width: 700px;
+    height: 400px;
+    background: url(../img/frames/frame-5-2.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+#main > .mainMiddle .intro p{
+    padding: 77px 90px;
+    line-height: 30px;
+    font-size: 21px;
+    text-indent: 2em;
+}
+
+#main > .mainMiddle .intro::after{
+    content: "";
+    position: absolute;
+    top: 45px;
+    left: 60px;
+    right: 70px;
+    bottom: 50px;
+    z-index: -10;
+
+    background: url(../img/rona.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(2px);
+}
+
+#main > .mainMiddle .intro::before{
+    content: "";
+    position: absolute;
+    top: 45px;
+    left: 60px;
+    right: 70px;
+    bottom: 50px;
+    z-index: -7;
+
+    background: rgba(255,255,255,0.5);
+}

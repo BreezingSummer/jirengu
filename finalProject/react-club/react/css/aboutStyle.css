@@ -1,0 +1,89 @@
+.aboutRight,
+.aboutLeft{
+    height: 1000px;
+    float: left;
+}
+
+.aboutRight{
+    width: 940px;
+    margin: 10px 10px 0 5px;
+    padding: 40px 25px 0;
+    border: 1px solid #E3E3E3;
+    background-color: #FFF;
+}
+
+.aboutLeft{
+    background-color: #f9f9f9;
+    width: 160px;
+    margin: 10px 20px 0 50px;
+    padding-bottom: 40px;
+}
+
+.aboutLeft-top{
+    height: 57px;
+    line-height: 57px;
+    background-color: #40C16B;
+    /* border: 1px solid #2EAF59; */
+    border-radius: 5px;
+    padding-left: 25px;
+    color: #FFF;
+    font-size: 22px;
+    letter-spacing: 5px;
+}
+
+.aboutLeft ul{
+    text-align: center;
+    border-radius: 5px;
+}
+
+.aboutLeft ul li{
+    color: #555;
+    height: 40px;
+    line-height: 40px;
+}
+
+.aboutLeft ul li a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#teamIntro img{
+    width: 700px;
+    height: 450px;
+}
+
+#teamIntro h1,
+#contactUs h1{
+    color: #5e5e5e;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"Hiragino Sans GB","Hiragino Sans GB W3";
+    line-height: 18px;
+    height: 18px;
+    margin-bottom: 30px;
+    border-left: 3px solid #40C16B;
+    padding-left: 20px;
+}
+
+#teamIntro hr,
+#contactUs hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+#contactUs .contactUsList{
+    color: #5e5e5e;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"Hiragino Sans GB","Hiragino Sans GB W3";
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#about > .aboutLeft li.active{
+    border-bottom: 1px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    border-left: 5px solid #40C16B;
+    background-color: #f2f2f2;
+}

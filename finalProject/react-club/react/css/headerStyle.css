@@ -1,0 +1,59 @@
+/* 整个头部 */
+header{
+    padding: 10px 0;
+    border: 1px solid red;
+}
+
+header > .verticalLine{
+    border-radius: 1px;
+    display: inline-block;
+    width: 2px;
+    height: 50px;
+    background: rgba(124, 124, 124, 0.8);
+    margin: 10px 30px 25px 0;
+}
+
+/*头部右边的导航栏*/
+nav{
+    font-size: 1.4em;
+    margin-top: 15px;
+    border: 1px solid red;
+}
+
+nav > ul{
+    background: rgba(128,128,128,0.7);
+}
+
+nav > ul > li{
+    position: relative;
+    vertical-align: baseline;
+    color: white;
+    float: left;
+    font-weight: bold;
+    margin: 0 15px;
+    padding: 10px;
+    /* border-bottom: 3px solid transparent; */
+}
+
+nav > ul > li:hover{
+    color: #dadada;
+}
+
+/* 2018.6.7动画下划线 */
+nav > ul > li:hover::after{
+    content: "";
+    display: block;
+
+    position: absolute;
+    left: 0;
+    top: 95%;
+    width: 100%;
+    height: 5px;
+    background: #e06567;
+    animation: slide 0.7s;
+}
+
+@keyframes slide{
+    0%{width:0;}
+    100%{width:100%;}
+}

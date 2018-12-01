@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{border:1px solid red;}
+        body{
+            background: url("./rona.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .mask{
+            width: 100px;
+            height: 100px;
+        }
+
+        .img{
+            background: url(./rona.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            filter: blur(10px);
+            width: 700px;
+            margin: 150px;
+        }
+
+        .container{
+            background:url(./frames/frame-5-2.png);
+            width: 1000px;
+            height: 1000px;
+            background-size: 100% 100%;
+        }
+        .container,.container2,.container3{
+            float: left;
+        }
+
+        .main{
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container2">
+            <div class="img1"></div>
+            <div class="img">
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img1"></div>
+            <div class="img">
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="img1"></div>
+            <div class="img">
+                <div class="mask"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

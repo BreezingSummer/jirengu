@@ -1,0 +1,43 @@
+.footer {
+    /* width: 100%;
+    position: absolute;
+    bottom: 0; */
+    margin: 40px 0 0 0;
+    /* border: 1px solid red; */
+    background-color: rgba(0,0,0,0.6);
+    color: rgb(221, 221, 221);
+    font-size: 14px;
+}
+
+.footer > .footerUp{
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    padding: 60px 0 0 0;
+    /* margin-bottom: 20px; */
+}
+
+.footer > .footerUp > div:nth-child(odd){
+    float: left;
+}
+
+.footer > .footerUp > div:nth-child(even){
+    float: right;
+}
+
+.footer > .footerUp ul > li{
+    margin: 8px 0;
+}
+
+.footer > .footerUp h3{
+    margin-bottom: 15px;
+}
+
+.footer > .footerDown{
+    text-Align: center;
+    color: #a3a3a3;
+    margin: 30px 60px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #d8d8d8;
+}

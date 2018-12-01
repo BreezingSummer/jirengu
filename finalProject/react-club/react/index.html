@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>fuben-上海鼎纪软件工程技术有限公司</title>
+	<link rel="stylesheet" href="css/globalStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/headerStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/footerStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/homeStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/rotate.css" type="text/css">
+	<link rel="stylesheet" href="css/caseStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/coStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/aboutStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/friendsStyle.css" type="text/css">
+	<link rel="stylesheet" href="css/newsStyle.css" type="text/css">
+	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<script src="https://unpkg.com/react-router/umd/react-router.min.js"></script>
+	<script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+</head>
+
+<body>
+	<div id="container"></div>
+
+	<script type="text/babel">
+		var {HashRouter,Switch,Link,Route} = window.ReactRouterDOM;
+		// console.log(window.ReactRouterDOM)
+
+		var container = document.querySelector("#container");
+
+		class Header extends React.Component {
+			render() {
+				// console.log(this.props.children)
+				return (
+					<header>
+						<img id="logoCo" src="./img/logo-1.png"/>
+						<div className="verticalLine"></div>
+						<img src="./img/logo-2-2.png" width="100px"/>
+						<nav>
+							<ul className="clearfix">
+								<li><Link to="/home">首页</Link></li>
+								<li><Link to="/case">案例成效</Link></li>
+								<li><Link to="/co">合作交流</Link></li>
+								<li><Link to="/news">新闻动态</Link></li>
+								<li><Link to="/friends">合作伙伴</Link></li>
+								<li><Link to="/about">关于我们</Link></li>
+								<li><Link to="/tri">secrets</Link></li>
+							</ul>
+						</nav>
+					</header>
+				);
+			}
+		}
+
+		class Footer extends React.Component{
+			render(){
+				return (
+					<footer className="footer">
+						<div className="footerUp clearfix">
+							<div>
+								<h3>友情链接</h3>
+								<ul>
+									<li>
+										<a href="http://www.scsme.org.cn/#/" target="_blank">上海申创中小企业合作交流平台</a>
+									</li>
+									<li>
+										<a href="http://www.scta.org.cn/" target="_blank">上海市计算机行业协会</a>
+									</li>
+									<li>
+										<a href="http://www.youtube.com/" target="_blank">产学研服务平台</a>
+									</li>
+								</ul>
+							</div>
+							<div>
+								<h3>联系方式</h3>
+								<ul>
+									<li>电话：50215021</li>
+									<li>邮编：201209</li>
+									<li>地址：浦东新区金海路2360号</li>
+								</ul>
+							</div>
+						</div>
+
+						<div  className="footerDown">
+							<p>
+								&copy; Copyright &copy; 2011.Company name All rights reserved.上海鼎纪软件工程技术有限公司
+							</p>
+						</div>
+					</footer>
+				);
+			}
+		}
+
+		class Home extends React.Component{
+			render() { 
+				return (
+					<HashRouter>
+						<section id="main" className="clearfix">
+							<div className="mainLeft">
+								<div className="rotateTri">
+									<Link to="/home/HomeUs" className="core_triangle_1">
+										<p>我们</p>
+									</Link>
+									<Link to="/home/HomeGroup" className="core_triangle_2">
+										<p>社团</p>
+									</Link>
+									<Link to="/home/HomePlatform" className="core_triangle_3">
+										<p>企业</p>
+									</Link>
+									<Link to="/home/HomeCo" className="core_triangle_4">
+										<p>高校</p>
+									</Link>
+								</div>
+							</div>
+				
+							<div className="mainMiddle">
+								<div className="intro">
+									<Route exact path="/home" component={HomeUs}/>
+									<Route exact path="/" component={HomeUs}/>
+									<Route path="/home/HomeUs" component={HomeUs}/>
+									<Route path="/home/HomeCo" component={HomeCo}/>						
+									<Route path="/home/HomePlatform" component={HomePlatform}/>
+								</div>
+							</div>
+
+							<div className="mainRight">
+								<div className="outerTri outer_triangle_1">
+									<p>项目对接</p>
+								</div>
+								<div className="outerTri outer_triangle_2">
+									<p>咨询服务</p>
+								</div>
+								<div className="outerTri outer_triangle_3">
+									<p>联合培训</p>
+								</div>
+								<div className="outerTri outer_triangle_4">
+									<p>人才培养</p>
+								</div>
+							</div>
+						</section>
+					</HashRouter>
+				);
+			}
+		}
+
+		class HomeUs extends React.Component{
+			render(){
+				return (
+					<p>
+						上海第二工业大学是以职业为导向的多科性大学。2013年，上海第二工业大学作为本市培养高端应用型人才的高校，进行了以职业为导向的高等教育的全面改革，为推进工业转型升级的创新发展打造了坚实的实验平台，如“智能制造自行车工厂实验室”、“工业3.0联合实验室”，创造了政府、高校、行业、企业间的产教研新型合作模式。
+					</p>
+				);
+			}
+		}
+
+		class HomeCo extends React.Component{
+			render(){
+				return(
+					<p>
+						上海申创中小企业合作交流促进中心作为市级中小企业服务的社会组织，先后组织近20家行业协会与各高校开展产学研合作，推出了的“校行合作”的创新模式，为高校积极引入优质行业资源，充实高校实践育人的双创内容。
+					</p>
+				);
+			}
+		}
+
+		class HomePlatform extends React.Component{
+			render(){
+				return (
+					<p>
+						上海市产学研用协同创新服务平台是上海第二工业大学联合上海申创中小企业合作交流促进中心、上海市计算机行业协会，共同推出的一个促进产学研用信息对接的第三方服务平台。此平台一方面联接着产业联盟及行业协会，即以上海申创中小企业合作交流促进中心牵头的“上海智慧服务产业合作交流发展联盟”，以及上海市计算机行业协会为代表，联合上海市其他行业协会，结成上海市行业协会联盟，共同加入此平台；
+					</p>
+				);
+			}
+		}
+
+		class Tri extends React.Component{
+			render() { 
+				return ( 
+					<section id="tri">
+	
+						<div className="rotateTri_1">
+							<div className="outerTri">
+								<div className="outer_triangle_1">
+									
+								</div>
+								<div className="outer_triangle_2">
+									
+								</div>
+								<div className="outer_triangle_3">
+									
+								</div>
+								<div className="outer_triangle_4">
+								</div>
+							</div>
+							<div className="coreTri">
+								<div className="core_triangle_1">
+									
+								</div>
+								<div className="core_triangle_2">
+									
+								</div>
+								<div className="core_triangle_3">
+									
+								</div>
+								<div className="core_triangle_4">
+									
+								</div>
+							</div>
+						</div>
+
+						<div className="rotateTri_2">
+							<div className="outerTri">
+								<div className="outer_triangle_1">
+									<p>i</p>
+								</div>
+								<div className="outer_triangle_2">
+									<p>love</p>
+								</div>
+								<div className="outer_triangle_3">
+									<p>my</p>
+								</div>
+								<div className="outer_triangle_4">
+									<p>Nancy</p>
+								</div>
+							</div>
+							<div className="coreTri">
+								<div className="core_triangle_1">
+									<p>my</p>
+								</div>
+								<div className="core_triangle_2">
+									<p>Nancy</p>
+								</div>
+								<div className="core_triangle_3">
+									<p>is</p>
+								</div>
+								<div className="core_triangle_4">
+									<p>the BEST!!!</p>
+								</div>
+							</div>
+						</div>
+			
+					</section>
+				);
+			}
+		}
+
+		class News extends React.Component{ 
+			render() {
+				return ( 
+					<section id="news">
+						
+
+						<div className="newsList">
+							<a>服务科创中心建设 推动成果转化 上海国际技术拍卖平台发展研讨会成功举办 </a>
+							<a>校企携手 二工大打造智能制造实验室生态平台</a>
+							<a>二工大牵手知名企业和海外高校，打造智能制造实验室生态平台</a>
+							<a>把“智能工厂”搬进“象牙塔”：二工大打造共生共荣智能制造实验室生态平台</a>
+							<a>知名企业与高校“牵手”，智能制造实验室生态平台落户二工大！</a>
+						</div>
+
+						<div className="newsList-1">
+							<a>服务科创中心建设 推动成果转化 上海国际技术拍卖平台发展研讨会成功举办 </a>
+							<a>校企携手 二工大打造智能制造实验室生态平台</a>
+							<a>二工大牵手知名企业和海外高校，打造智能制造实验室生态平台</a>
+							<a>把“智能工厂”搬进“象牙塔”：二工大打造共生共荣智能制造实验室生态平台</a>
+							<a>知名企业与高校“牵手”，智能制造实验室生态平台落户二工大！</a>
+						</div>
+					</section>
+				);
+			}
+		}
+
+		class Case extends React.Component{ 
+			render() {
+				return (
+					<section id="case">
+						<h2>案例成效</h2>
+						<hr/>
+
+						<ul className="caseList">
+							<li className="case-1-1">
+								<div className="para">
+									<h3>上海市产学研协同创新服务平台为学生提供顶岗实习对接服务</h3>
+									<p>
+										目前，平台已经将上海第二工业大学30多个专业的5000多名学生送到200多个企业进行实习。学生与企业的对接管理模式正在磨合，逐步走向正规化和社会化。
+									</p>
+									<div className="detail">查看详情</div>
+								</div>
+								<div className="img">
+									<img src="./img/case-1-1-1.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div className="para">
+									<h3>上海市产学研协同创新服务平台提供校企合作项目对接服务</h3>
+									<p>
+										通过学生企业实习服务项目的成功对接，产学研协同创新服务平台积累了人一定的人气，并且由于学生的企业实习，使企业指导老师与高校的指导老师建立了联系，为校企合作提供了一种可能。
+									</p>
+									<div className="detail">查看详情</div>
+								</div>
+								<div className="img">
+									<img src="./img/case-1-2-1.png"/>
+								</div>
+							</li>
+							<li>
+								<div className="para">
+									<h3>上海市产学研协同创新服务平台提供企业培训项目</h3>
+									<p>
+										企业的岗位培训是一个持续的过程，对职工的新技术培训是终身的要求。有了这个平台，企业没有必要建立专门的师资队伍，来增加企业的运营成本。
+									</p>
+									<div className="detail">查看详情</div>
+								</div>
+								<div className="img">
+									<img src="./img/case-1-3-2.png"/>
+								</div>
+							</li>
+						</ul>
+						<ul className="pagination">
+							<li>
+								<a href="case1.html">&lt;&lt;</a>
+							</li>
+							<li>
+								<a href="case1.html">First</a>
+							</li>
+							<li className="selected">
+								<a href="case1.html">1</a>
+							</li>
+							<li>
+								<a href="case2.html">2</a>
+							</li>
+							<li>
+								<a href="case2.html">Last</a>
+							</li>
+							<li>
+								<a href="case2.html">&gt;&gt;</a>
+							</li>
+						</ul>
+					</section>
+				);
+			}
+		}
+
+		class Co extends React.Component{ 
+			render() {
+				return (
+					<section id="co">
+						<h2>合作交流</h2>
+						<hr/>
+
+						<ul className="coList">
+							<li>
+								<div className="para">
+									<h3>中德工业3.0联盟代表团访问上海第二工业大学</h3>
+									<p>
+										中德工业3.0联盟执委会主席周向前博士、上海总代表王琪博士访问上海第二工业大学。徐玉芳副校长会见代表团一行，双方进行了会谈交流。
+									</p>
+									<div className="detail">查看详情</div>
+								</div>
+								<div className="img">
+									<img src="./img/co-1-1-1.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div className="para">
+									<h3>武义科技局联合上海第二工业大学深入企业走访调研，收获满满！</h3>
+									<p>
+										上海第二工业大学产业发展处处长刘晓航带队来武义县走访调研，随同人员有武义工作站站长杨敬辉教授、智能制造与控制工程学院院长汪志峰教授、材料与环境工程学院副教授陈胜文等人，武义县科技局局长章航负责接待，就工业产业转型升级中遇到的问题等方面做了友好交流。
+									</p>
+									<div className="detail">查看详情</div>
+								</div>
+								<div className="img">
+									<img src="./img/co-1-2-1.jpg"/>
+								</div>
+							</li>
+							<li>
+								<div className="para">
+									<h3> 海外名师爱尔兰塔拉理工大学John Vickery教授来我校访问</h3>
+									<p>
+										John积极参与到我们的科研团队中，对我们的企业项目也非常感兴趣，同我们一起去企业调研。
+									</p>
+									<div className="detail">查看详情</div>
+								</div>
+								<div className="img">
+									<img src="./img/co-1-3-1.jpg"/>
+								</div>
+							</li>
+						</ul>
+						<ul className="pagination">
+							<li>
+								<a href="companynews.html">&lt;&lt;</a>
+							</li>
+							<li>
+								<a href="companynews.html">First</a>
+							</li>
+							<li className="selected">
+								<a href="companynews.html">1</a>
+							</li>
+							<li>
+								<a href="#">Last</a>
+							</li>
+							<li>
+								<a href="#">&gt;&gt;</a>
+							</li>
+						</ul>
+					</section>
+				);
+			}
+		}
+
+		class Friends extends React.Component{
+			render() {
+				return ( 
+					<section id="friends">
+						<h2>合作伙伴</h2>
+						<hr/>
+						
+						<div className="friendsList clearfix">
+							<div>
+								<div className="friendsWrapper">
+									<p>欧盟Erasmus计划</p>
+									<img src="./img/friends/erasmus.png"/>
+								</div>
+								<div className="friendsWrapper">
+									<p>欧盟Erasmus+计划</p>
+									<img src="./img/friends/erasmus+.jpg"/>
+								</div>
+								<div className="friendsWrapper">
+									<p>爱思普（SAP）</p>
+									<img src="./img/friends/sap.png"/>
+								</div>
+								
+							</div>
+							<div>
+								<div className="friendsWrapper">
+									<p>上海申创中小企业合作交流促进中心</p>
+									<img src="./img/friends/上海申创中小企业合作交流促进中心.png"/>
+								</div>
+								<div className="friendsWrapper">
+									<p>ファナック株式会社 (FANUC CORPORATION)</p>
+									<img src="./img/friends/fanuc-1.png"/>
+								</div>
+								<div className="friendsWrapper">
+									<p>上海计算机行业协会</p>
+									<img src="./img/friends/上海计算机行业协会.gif"/>
+								</div>
+							</div>
+							<div>
+								<div className="friendsWrapper">
+									<p>SAP大学能力中心</p>
+									<img src="./img/friends/sap_ucc.jpg"/>
+								</div>
+								
+							</div>
+						</div>
+					</section>
+				);
+			}
+		}
+
+		class About extends React.Component{
+			componentDidMount(){
+				var li = document.querySelectorAll(".aboutLeft ul li");
+				// console.log(li);
+				
+				for(var i=0;i<li.length;i++){
+					li[i].onclick = (e) => {
+						// console.log(e)
+						// console.log(e.target.parentNode)
+						// console.log(e.target.tagName.toLowerCase())
+						if(e.target.tagName.toLowerCase() === "a"){
+							var liBrothers = e.target.parentNode.parentNode.childNodes;
+							var liParents = e.target.parentNode;
+						}else if(e.target.tagName.toLowerCase() === "li"){
+							var liBrothers =e.target.parentNode.childNodes;
+							var liParents = e.target;
+						}
+						// console.log(liBrothers)
+						for(let j=0;j<liBrothers.length;j++){
+							liBrothers[j].classList.remove("active");
+						}
+						liParents.classList.add("active");
+					};
+				}
+			}
+
+			render() {
+				return ( 
+					<HashRouter>
+						<section id="about" className="clearfix">
+							<div className="aboutLeft">
+								<div className="aboutLeft-top">关于我们</div>
+								<ul>
+									<li className="active"><Link to="/about/teamIntro">团队介绍</Link></li>
+									<li><Link to="/about/contactUs">联系我们</Link></li>
+								</ul>
+							</div>
+							
+							<div className="aboutRight">
+								<Route exact path="/about" component={TeamIntro}/>
+								<Route path="/about/teamIntro" component={TeamIntro}/>
+								<Route path="/about/contactUs" component={ContactUs}/>
+							</div>
+						</section>
+					</HashRouter>
+				);
+			}
+		}
+
+		class TeamIntro extends React.Component{ 
+			render() {
+				return ( 
+					<div id="teamIntro">
+						<h2>我们的团队</h2>
+						<hr/>
+
+						<img src="./img/teamintro-1.png"/>
+						<img src="./img/teamintro-2.png"/>
+					</div>
+				);
+			}
+		}
+
+		class ContactUs extends React.Component{ 
+			render() {
+				return ( 
+					<div id="contactUs">
+						<h2>联系我们</h2>
+						<hr/>
+
+						<blockquote className="contactUsList">
+							<p>1.实验室名称</p>
+							<p><br/></p>
+							<p>2.成立时间</p>
+							<p><br/></p>
+							<p>3.实验室主要工作</p>
+							<p><br/></p>
+							<p>4.联系电话</p>
+							<p><br/></p>
+							<p>5.联系邮编</p>
+							<p><br/></p>
+							<p>6.实验室地址</p>
+						</blockquote>
+					</div>
+				);
+			}
+		}
+
+		ReactDOM.render(
+			<HashRouter>
+				<div>
+					<Header/>
+					<Route exact path="/" component={Home}/>
+					<Route path="/home" component={Home}/>
+					<Route path="/case" component={Case}/>
+					<Route path="/co" component={Co}/>
+					<Route path="/news" component={News}/>
+					<Route path="/friends" component={Friends}/>
+					<Route path="/about" component={About}/>
+					<Route path="/tri" component={Tri}/>
+					<Footer/>
+				</div>
+			</HashRouter>,
+			container
+		)	
+	</script>
+</body>
+
+</html>

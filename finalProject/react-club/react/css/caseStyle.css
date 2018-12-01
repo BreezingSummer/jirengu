@@ -1,0 +1,86 @@
+#case > .caseList{
+    width: 900px;
+    margin: 10px auto;
+    perspective: 1000px;
+    perspective-origin: 50% 30%;
+}
+
+#case > .caseList > li{
+    height: 200px;
+    /* border: 1px solid red; */
+    margin: 30px 0;
+    background-color: white;
+    transition: all 0.5s ease-out;
+}
+
+#case > .caseList > li:hover{
+    cursor: pointer;
+    animation: bigger 0.3s linear;
+    animation-fill-mode: forwards;
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.5);
+}
+
+@keyframes bigger{
+    0%{transform: translateZ(0);}
+    100%{transform: translateZ(20px);}
+}
+
+/* #case > .caseList > li:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.5);
+} */
+
+/* #case > .caseList > li:hover .ab{
+    cursor: pointer;
+    margin:-10px;
+} */
+
+/* #case > .caseList > li:hover .para{
+    cursor: pointer;
+    padding:40px;
+} */
+
+/* #case > .caseList > li:hover .para{
+    padding:40px;
+} */
+
+#case > .caseList .para{
+    float: left;
+    width: 57%;
+    padding: 30px 30px 0 30px;
+   
+}
+
+#case > .caseList .img{
+    width: 35%;
+    height: 100%;
+    float: right;
+}
+
+#case > .caseList img{
+    width: 100%;
+    height: 100%;
+}
+
+#case > .caseList p{
+    margin: 10px;
+    color: #909090;
+}
+
+#case >.caseList h3{
+    text-align: center;
+}
+
+#case > .caseList .detail{
+    width: 25%;
+    height: 30px;
+    line-height: 30px;
+    margin: 20px 30px 0 30px;
+    font-size: 14px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #12c287;
+    border-radius: 4px;
+}
